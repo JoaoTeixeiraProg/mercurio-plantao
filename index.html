@@ -8,13 +8,11 @@
     <title>Plantão da Semana</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html,
         body {
             width: 100%;
@@ -47,515 +45,234 @@
         }
         .titulo {
             font-size: clamp(35px, 5vw, 70px);
-
             font-weight: 800;
-
             letter-spacing: 3px;
-
             text-transform: uppercase;
-
             text-shadow:
                 3px 3px 8px rgba(0, 0, 0, 0.8);
-
             margin-bottom: 10px;
         }
-
-
-        /* =================================================
-           DATA
-           ================================================= */
-
         .semana {
             font-size: clamp(18px, 2vw, 28px);
-
             font-weight: 500;
-
             margin-bottom: 55px;
-
             text-shadow:
                 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
-
-
-        /* =================================================
-           TI / TÉCNICO
-           ================================================= */
-
         .plantao {
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 80px;
-
             align-items: start;
         }
-
-
         .area {
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
         }
-
-
         .area-titulo {
             font-size: clamp(30px, 4vw, 55px);
-
             font-weight: 800;
-
             margin-bottom: 25px;
-
             text-transform: uppercase;
-
             text-shadow:
                 3px 3px 7px rgba(0, 0, 0, 0.9);
         }
-
-
-        /* =================================================
-           FOTO
-           ================================================= */
-
         .foto-container {
             width: 260px;
             height: 260px;
-
             border-radius: 50%;
-
             overflow: hidden;
-
             border: 6px solid white;
-
             background: #222;
-
             box-shadow:
                 0 8px 30px rgba(0, 0, 0, 0.7);
         }
-
-
         .foto-container img {
             width: 100%;
             height: 100%;
-
             object-fit: cover;
-
             display: block;
         }
-
-
-        /* =================================================
-           NOME
-           ================================================= */
-
         .nome {
             margin-top: 25px;
-
             font-size: clamp(22px, 3vw, 38px);
-
             font-weight: 700;
-
             text-shadow:
                 3px 3px 7px rgba(0, 0, 0, 0.9);
         }
-
-
-        /* =================================================
-           CELULAR
-           ================================================= */
-
+        /* CELULAR */
         @media (max-width: 700px) {
-
             body {
                 overflow-y: auto;
             }
-
             .container {
                 width: 95%;
-
                 padding: 30px 15px;
             }
-
             .titulo {
                 letter-spacing: 1px;
-
                 margin-bottom: 8px;
             }
-
             .semana {
                 margin-bottom: 40px;
             }
-
             .plantao {
                 grid-template-columns: 1fr;
-
                 gap: 55px;
             }
-
             .foto-container {
                 width: 190px;
                 height: 190px;
             }
-
             .area-titulo {
                 margin-bottom: 18px;
             }
-
             .nome {
                 margin-top: 18px;
             }
         }
-
-
-        /* =================================================
-           TELAS BAIXAS
-           ================================================= */
-
         @media (max-height: 700px) and (min-width: 701px) {
-
             .container {
                 padding: 20px;
             }
-
             .semana {
                 margin-bottom: 25px;
             }
-
             .foto-container {
                 width: 190px;
                 height: 190px;
             }
-
             .area-titulo {
                 margin-bottom: 15px;
             }
-
             .nome {
                 margin-top: 15px;
             }
         }
-
     </style>
-
 </head>
-
-
 <body>
-
     <main class="container">
-
-
-        <!-- TÍTULO -->
-
         <h1 class="titulo">
             PLANTÃO DA SEMANA
         </h1>
-
-
-        <!-- DATA DA SEMANA -->
-
         <div class="semana" id="semana">
             Semana de 10/08/2026 a 16/08/2026
         </div>
-
-
-        <!-- PLANTÃO -->
-
         <section class="plantao">
-
-
-            <!-- =================================================
-                 TI
-                 ================================================= -->
-
             <div class="area">
-
                 <h2 class="area-titulo">
                     TI
                 </h2>
-
-
                 <div class="foto-container">
-
                     <img
                         id="fotoTI"
                         src=""
-                        alt="Responsável pelo TI"
-                    >
-
+                        alt="Responsável pelo TI">
                 </div>
-
-
                 <div class="nome" id="nomeTI">
                     João Teixeira
                 </div>
-
             </div>
-
-
-            <!-- =================================================
-                 TÉCNICO
-                 ================================================= -->
-
             <div class="area">
-
                 <h2 class="area-titulo">
                     TÉCNICO
                 </h2>
-
-
                 <div class="foto-container">
-
                     <img
                         id="fotoTecnico"
                         src=""
-                        alt="Técnico responsável"
-                    >
-
+                        alt="Técnico responsável">
                 </div>
-
-
                 <div class="nome" id="nomeTecnico">
                     Rikelve Nascimento
                 </div>
-
             </div>
-
-
         </section>
-
     </main>
-
-
     <script>
-
-
-        /* =====================================================
-           DATA INICIAL DO RODÍZIO
-           ===================================================== */
-
         const dataInicio = new Date(2026, 7, 10);
-
-
-        /* =====================================================
-           TI
-           =====================================================
-
-           1ª semana  → João
-           2ª semana  → Victor
-           3ª semana  → João
-           4ª semana  → Victor
-           ...
-        */
-
         const TI = [
-
             {
                 nome: "João Teixeira",
-
-                /*
-                 * LINK ENVIADO POR VOCÊ:
-                 *
-                 * //imgur.com/a/uoOUuPD
-                 *
-                 * ATENÇÃO:
-                 * Esse endereço é um álbum do Imgur,
-                 * não o endereço direto da imagem.
-                 *
-                 * Assim que você mandar o link direto,
-                 * coloque ele aqui.
-                 */
-
                 foto: "https://i.imgur.com/Oe4uk28_d.webp?maxwidth=760&fidelity=grand"
             },
-
             {
                 nome: "Victor Menezes",
-
                 foto: "https://i.imgur.com/fywzZTK.jpeg"
             }
-
         ];
-
-
-        /* =====================================================
-           TÉCNICOS
-           =====================================================
-
-           1ª semana → Rikelve
-           2ª semana → Victor Ribeiro
-           3ª semana → Vinicius Ribeiro
-           4ª semana → Rikelve
-           ...
-        */
-
         const TECNICOS = [
-
             {
                 nome: "Rikelve Nascimento",
-
                 foto: "https://i.imgur.com/6TLMaLT.jpeg"
             },
-
             {
                 nome: "Victor Ribeiro",
-
                 foto: "https://i.imgur.com/nEfdtGY.jpeg"
             },
-
             {
                 nome: "Vinicius Ribeiro",
-
                 foto: "https://i.imgur.com/T9qwQQQ.jpeg"
             }
-
         ];
-
-
-        /* =====================================================
-           FORMATAR DATA
-           ===================================================== */
-
         function formatarData(data) {
-
             const dia =
                 String(data.getDate()).padStart(2, "0");
-
             const mes =
                 String(data.getMonth() + 1).padStart(2, "0");
-
             const ano =
                 data.getFullYear();
-
             return `${dia}/${mes}/${ano}`;
         }
-
-
-        /* =====================================================
-           CALCULAR PLANTÃO
-           ===================================================== */
-
         function calcularPlantao() {
-
             const agora = new Date();
-
-
             const diferenca =
                 agora.getTime() -
                 dataInicio.getTime();
-
-
             let semanaAtual =
                 Math.floor(
                     diferenca /
                     (7 * 24 * 60 * 60 * 1000)
                 );
-
-
             if (semanaAtual < 0) {
-
                 semanaAtual = 0;
-
             }
-
-
-            /* =================================================
-               ESCOLHER TI
-               ================================================= */
-
             const indiceTI =
                 semanaAtual % TI.length;
-
             const pessoaTI =
                 TI[indiceTI];
-
-
-            /* =================================================
-               ESCOLHER TÉCNICO
-               ================================================= */
-
             const indiceTecnico =
                 semanaAtual % TECNICOS.length;
-
             const pessoaTecnico =
                 TECNICOS[indiceTecnico];
-
-
-            /* =================================================
-               DATA DA SEMANA
-               ================================================= */
-
             const inicioSemana =
                 new Date(dataInicio);
-
             inicioSemana.setDate(
                 inicioSemana.getDate() +
                 (semanaAtual * 7)
             );
-
-
             const fimSemana =
                 new Date(inicioSemana);
-
             fimSemana.setDate(
                 fimSemana.getDate() + 6
             );
-
-
-            /* =================================================
-               ATUALIZAR TI
-               ================================================= */
-
             document.getElementById("fotoTI").src =
                 pessoaTI.foto;
-
             document.getElementById("nomeTI").textContent =
                 pessoaTI.nome;
-
-
-            /* =================================================
-               ATUALIZAR TÉCNICO
-               ================================================= */
-
             document.getElementById("fotoTecnico").src =
                 pessoaTecnico.foto;
-
             document.getElementById("nomeTecnico").textContent =
                 pessoaTecnico.nome;
-
-
-            /* =================================================
-               ATUALIZAR DATA
-               ================================================= */
-
             document.getElementById("semana").textContent =
                 `Semana de ${formatarData(inicioSemana)} a ${formatarData(fimSemana)}`;
-
         }
-
-
-        /* =====================================================
-           EXECUTAR
-           ===================================================== */
-
         calcularPlantao();
-
-
-        /* =====================================================
-           VERIFICAR A CADA MINUTO
-           ===================================================== */
-
         setInterval(() => {
-
             calcularPlantao();
-
         }, 60 * 1000);
-
-
     </script>
-
 </body>
-
 </html>
